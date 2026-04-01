@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yantahari.github.io/choose-your-own-self-help/sitemap.xml
