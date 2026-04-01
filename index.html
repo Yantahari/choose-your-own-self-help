@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Own Self-Help | Find Your Perfect Alternative Therapy</title>
+<meta name="description" content="Take this free interactive quiz to discover which of 16 alternative therapies is your perfect match. From mindfulness to crystal therapy, find yours with humor.">
+<meta name="keywords" content="alternative therapy quiz, self-help quiz, which therapy is right for me, mindfulness, reiki, acupuncture, yoga, astrology, homeopathy, choose your own adventure, woo-woo meter">
+<meta property="og:title" content="Choose Your Own Self-Help">
+<meta property="og:description" content="Which alternative therapy is YOUR match? Take the quiz and find out. 16 therapies, 1 path, infinite excuses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yantahari.github.io/choose-your-own-self-help/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Choose Your Own Self-Help">
+<meta name="twitter:description" content="Which alternative therapy is YOUR match? Take the free quiz.">
+<link rel="alternate" hreflang="es" href="es.html">
+<link rel="alternate" hreflang="en" href="index.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #faf8f5;
+    color: #2d2d2d;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #2B4C7E 0%, #4A7C8B 100%);
+    padding: 32px 24px;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+
+  .header h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
+  .header p { font-size: 0.85rem; opacity: 0.85; font-weight: 400; }
+
+  .lang-switch {
+    position: absolute; top: 12px; right: 16px;
+    font-size: 0.75rem; color: rgba(255,255,255,0.7);
+  }
+  .lang-switch a { color: white; text-decoration: none; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+  .lang-switch a.active { background: rgba(255,255,255,0.2); }
+  .lang-switch a:hover { background: rgba(255,255,255,0.15); }
+
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  .card {
+    background: white; border-radius: 16px; padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); animation: fadeUp 0.4s ease-out;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-indicator {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px; color: #4A7C8B;
+    background: #e8f4f5; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+  }
+
+  .question-text { font-size: 1.2rem; font-weight: 700; line-height: 1.4; color: #1a1a1a; margin-bottom: 8px; }
+  .question-flavor { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 24px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex; align-items: center; gap: 12px; padding: 16px 18px;
+    background: #f8f6f3; border: 2px solid transparent; border-radius: 12px;
+    cursor: pointer; text-align: left; font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease; position: relative;
+  }
+  .option-btn:hover { background: #f0edea; border-color: #4A7C8B; transform: translateX(4px); }
+  .option-emoji { font-size: 1.5rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .option-content { flex: 1; }
+  .option-label { font-size: 0.95rem; font-weight: 600; color: #2d2d2d; margin-bottom: 2px; }
+  .option-sublabel { font-size: 0.78rem; color: #999; line-height: 1.3; }
+
+  .result-card { text-align: center; }
+  .result-cat { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px; }
+  .result-cat.spiritual { background: #f0e8f5; color: #8B4C6A; }
+  .result-cat.eastern { background: #e8f0f5; color: #2B4C7E; }
+  .result-cat.trending { background: #fff3e0; color: #c87f0a; }
+  .result-cat.pseudo { background: #e0f2f1; color: #4A7C8B; }
+  .result-cat.bonus { background: #e8f5e9; color: #5B8C5A; }
+
+  .result-emoji { font-size: 3rem; margin-bottom: 8px; }
+  .result-name { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 4px; }
+  .result-tagline { font-size: 0.9rem; color: #4A7C8B; font-weight: 600; font-style: italic; margin-bottom: 20px; }
+  .result-desc { font-size: 0.88rem; color: #555; line-height: 1.65; text-align: left; margin-bottom: 16px; padding: 16px; background: #faf8f5; border-radius: 12px; }
+  .result-humor { font-size: 0.85rem; color: #8B4C6A; font-style: italic; line-height: 1.6; text-align: left; padding: 16px; background: #fdf5f8; border-radius: 12px; margin-bottom: 20px; border-left: 3px solid #8B4C6A; }
+
+  .woo-meter { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 16px 0; font-size: 0.85rem; color: #666; }
+  .woo-dots { display: flex; gap: 4px; }
+  .woo-dot { width: 20px; height: 20px; border-radius: 50%; background: #eee; }
+  .woo-dot.filled { background: linear-gradient(135deg, #4A7C8B, #8B4C6A); }
+
+  .cta-section { margin-top: 24px; padding: 20px; background: linear-gradient(135deg, #2B4C7E 0%, #4A7C8B 100%); border-radius: 12px; text-align: center; }
+  .cta-section p { color: rgba(255,255,255,0.9); font-size: 0.85rem; margin-bottom: 12px; line-height: 1.5; }
+  .cta-section strong { color: white; }
+  .cta-btn { display: inline-block; padding: 12px 28px; background: white; color: #2B4C7E; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
+  .btn-restart { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: linear-gradient(135deg, #2B4C7E, #4A7C8B); color: white; border: none; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: transform 0.2s; margin-top: 8px; }
+  .btn-restart:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(43,76,126,0.3); }
+
+  .share-section { margin-top: 20px; }
+  .share-section p { font-size: 0.8rem; color: #999; margin-bottom: 8px; }
+  .share-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .share-btn { padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; text-decoration: none; color: white; transition: opacity 0.2s; }
+  .share-btn:hover { opacity: 0.85; }
+  .share-btn.twitter { background: #1DA1F2; }
+  .share-btn.whatsapp { background: #25D366; }
+  .share-btn.copy { background: #666; cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+
+  .progress-bar { height: 4px; background: #eee; border-radius: 2px; margin-bottom: 24px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #2B4C7E, #4A7C8B); border-radius: 2px; transition: width 0.4s ease; }
+
+  .counter { text-align: center; font-size: 0.72rem; color: #bbb; margin-top: 16px; }
+
+  .footer { text-align: center; padding: 24px; font-size: 0.75rem; color: #bbb; }
+  .footer a { color: #4A7C8B; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="lang-switch">
+    <a href="index.html" class="active">EN</a> |
+    <a href="es.html">ES</a>
+  </div>
+  <h1>Choose Your Own Self-Help</h1>
+  <p>Interactive quiz &mdash; 16 therapies, 1 path, infinite excuses</p>
+</div>
+
+<div class="container">
+  <div id="app"></div>
+</div>
+
+<div class="footer">
+  <p>From the book <a href="#" id="bookLink"><strong>Choose Your Own Self-Help</strong></a> by Luna Bolt</p>
+  <p style="margin-top:4px">The Ultimate Interactive Guide to Alternative Therapies</p>
+</div>
+
+<script>
+const TREE = {
+  id: "q1", step: 1, totalSteps: 4,
+  question: "Right then, welcome to the cosmic consultation room. First diagnosis: what brings you here today?",
+  flavor: "Be honest. We don\u2019t judge here. Okay, we do a little, but lovingly.",
+  options: [
+    { emoji: "\ud83d\ude30", label: "I\u2019m stressed, anxious, or on the verge of collapse", sublabel: "Work, life, the sheer audacity of existence...", pathLabel: "Stress / Anxiety",
+      next: { id: "q2a", step: 2, totalSteps: 4, question: "Ah, stress. The classic. So how do you actually deal with problems?", flavor: "There are no wrong answers. Well, there are, but I\u2019m not telling.", options: [
+        { emoji: "\ud83e\uddd8", label: "I need to stop, disconnect, someone tell me to breathe", sublabel: "My body\u2019s a sports car but my brain\u2019s stuck in first gear", pathLabel: "Need to stop",
+          next: { id: "q3a1", step: 3, totalSteps: 4, question: "What does your ideal switch-off look like?", flavor: "Close your eyes and visualize... wait, you still have to pick.", options: [
+            { emoji: "\ud83e\udde0", label: "Something mental: silence, calm, empty my head", sublabel: "Even though my head won\u2019t shut up underwater", pathLabel: "Mental", next: { result: "mindfulness" } },
+            { emoji: "\ud83e\udd32", label: "Something physical: someone touching, adjusting, fixing me", sublabel: "I\u2019m so tense I could double as an ironing board", pathLabel: "Physical",
+              next: { id: "q4", step: 4, totalSteps: 4, question: "Needles or drama-free?", flavor: "Important question, trust me on this one.", options: [
+                { emoji: "\ud83d\udccc", label: "Needles intrigue me (therapeutically, of course)", sublabel: "If it doesn\u2019t hurt a little, I don\u2019t believe it", pathLabel: "Needles", next: { result: "acupuncture" } },
+                { emoji: "\u270b", label: "I prefer hands, warmth, gentle things", sublabel: "I\u2019m sensitive \u2014 in every sense", pathLabel: "No needles", next: { result: "reiki" } }
+              ]}
+            }
+          ]}
+        },
+        { emoji: "\ud83c\udfc3", label: "I need to DO something, move, take action", sublabel: "If I don\u2019t have an action plan, I get even more anxious", pathLabel: "Need action",
+          next: { id: "q3a2", step: 3, totalSteps: 4, question: "Good, you\u2019re an action person. But what kind of action?", flavor: "Just so you know, \u2018biting my nails faster\u2019 doesn\u2019t count.", options: [
+            { emoji: "\ud83e\uddd8\u200d\u2642\ufe0f", label: "Move my body: stretch, sweat, impossible poses", sublabel: "If I don\u2019t end up exhausted, it didn\u2019t work", pathLabel: "Body", next: { result: "yoga" } },
+            { emoji: "\ud83d\udde3\ufe0f", label: "Talk to someone who asks deep questions", sublabel: "Tell me what to do (but make it look like I figured it out)", pathLabel: "Talk", next: { result: "coaching" } },
+            { emoji: "\ud83c\udfe0", label: "Reorganize my space: clean, tidy, rearrange", sublabel: "If my house is fine, I\u2019m fine (I think)", pathLabel: "Reorganize", next: { result: "fengshui" } }
+          ]}
+        }
+      ]}
+    },
+    { emoji: "\ud83d\udc94", label: "I\u2019ve got an emotional / romantic / existential mess", sublabel: "Love, family, the meaning of life... the usual", pathLabel: "Emotional mess",
+      next: { id: "q2b", step: 2, totalSteps: 4, question: "Emotional mess \u2014 the main course. Where do you think the problem comes from?", flavor: "Spoiler: probably from further back than you think.", options: [
+        { emoji: "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67", label: "My family (parents, grandparents, that cousin nobody talks about...)", sublabel: "I suspect my family tree is more of a problematic shrub", pathLabel: "Family",
+          next: { id: "q3b1", step: 3, totalSteps: 4, question: "How far are you willing to dig into the family past?", flavor: "There are levels, from \u2018regular therapy\u2019 to \u2018my great-great-grandfather was a pirate.\u2019", options: [
+            { emoji: "\ud83c\udf33", label: "As far as it takes: great-grandparents, ancestral trauma, all of it", sublabel: "If we need the root, let\u2019s get the root (genealogical)", pathLabel: "Deep dig", next: { result: "constellations" } },
+            { emoji: "\ud83d\udc90", label: "Something gentle: drops, essences, no family drama", sublabel: "I want to feel better without forgiving my ex or my in-laws", pathLabel: "Gentle", next: { result: "bach" } }
+          ]}
+        },
+        { emoji: "\ud83e\ude9e", label: "Myself (I don\u2019t understand me, I don\u2019t know what I want)", sublabel: "I\u2019ve been trying to find myself for years and I\u2019m still lost", pathLabel: "Myself",
+          next: { id: "q3b2", step: 3, totalSteps: 4, question: "How would you like to find answers about yourself?", flavor: "Every method has its charm. And its price tag.", options: [
+            { emoji: "\u2b50", label: "Looking at the stars: let the cosmos explain me", sublabel: "If the stars don\u2019t get me, who will?", pathLabel: "Stars", next: { result: "astrology" } },
+            { emoji: "\ud83d\udcda", label: "Accessing some kind of \u2018record\u2019 or \u2018reading\u2019 of my soul", sublabel: "I need a cosmic PDF of my existence", pathLabel: "Cosmic record", next: { result: "akashic" } },
+            { emoji: "\ud83e\uddec", label: "Reprogramming my mind, changing my patterns", sublabel: "Ctrl+Alt+Delete emotional", pathLabel: "Reprogram", next: { result: "nlp" } }
+          ]}
+        }
+      ]}
+    },
+    { emoji: "\ud83e\udd15", label: "I have a physical / health problem that won\u2019t go away", sublabel: "I\u2019ve seen the doctor, but I want to explore \u2018other options\u2019", pathLabel: "Physical health",
+      next: { id: "q2c", step: 2, totalSteps: 4, question: "Got it, your body\u2019s filing complaints. What kind of approach appeals to you?", flavor: "Legal disclaimer: this is a humor book, not a medical leaflet.", options: [
+        { emoji: "\ud83d\udca7", label: "Something natural, gentle, chemical-free", sublabel: "If it comes from nature, it must be good (right?)", pathLabel: "Natural",
+          next: { id: "q3c1", step: 3, totalSteps: 4, question: "What level of \u2018natural\u2019 are we talking?", flavor: "There\u2019s a spectrum from \u2018chamomile tea\u2019 to \u2018water with a memory.\u2019", options: [
+            { emoji: "\ud83d\udca7", label: "Dilutions, pellets, magic water... less active ingredient = better", sublabel: "Faith moves mountains (and dissolves molecules)", pathLabel: "Very diluted", next: { result: "homeopathy" } },
+            { emoji: "\ud83c\udf38", label: "Essential oils, aromas, things that smell nice", sublabel: "If my house smells like lavender, my problems disappear", pathLabel: "Aromas", next: { result: "aromatherapy" } }
+          ]}
+        },
+        { emoji: "\ud83d\udd2c", label: "Something that sounds scientific (even if it isn\u2019t quite)", sublabel: "If it has the word \u2018neuro\u2019 or \u2018bio,\u2019 I\u2019m more likely to buy it", pathLabel: "Pseudoscientific",
+          next: { id: "q3c2", step: 3, totalSteps: 4, question: "Deep emotional meaning or things that sparkle?", flavor: "Both are equally imaginative, I\u2019ll give them that.", options: [
+            { emoji: "\ud83d\udcad", label: "My body is sending me an emotional message", sublabel: "My lower back pain is actually my inner self crying for help", pathLabel: "Emotional message", next: { result: "biodecoding" } },
+            { emoji: "\ud83d\udc8e", label: "I prefer crystals, energies, and things that glitter", sublabel: "If it looks pretty on my nightstand, it probably cures something", pathLabel: "Crystals", next: { result: "crystals" } }
+          ]}
+        }
+      ]}
+    },
+    { emoji: "\u2728", label: "I want MORE: more money, more success, more abundance, more EVERYTHING", sublabel: "I\u2019m not doing badly, but the universe owes me a few", pathLabel: "Want more",
+      next: { id: "q2d", step: 2, totalSteps: 4, question: "Ah, cosmic ambition. How are you planning to get that \u2018more\u2019?", flavor: "Heads up: \u2018work harder\u2019 is not an option here.", options: [
+        { emoji: "\ud83e\uddf2", label: "By thinking about it really hard until the universe delivers", sublabel: "I visualize, I manifest, I decree, and I wait for the cosmic parcel", pathLabel: "Manifest", next: { result: "lawofattraction" } },
+        { emoji: "\ud83d\ude4f", label: "With nice phrases, mantras, or repeating things until they work", sublabel: "I\u2019m sorry, forgive me, thank you, I love you... and give me a raise", pathLabel: "Mantras", next: { result: "hooponopono" } }
+      ]}
+    }
+  ]
+};
+
+const RESULTS = {
+  mindfulness: { name: "Meditation / Mindfulness", emoji: "\ud83e\uddd8", tagline: "Clear your mind (if you can)", cat: "eastern", catLabel: "Eastern / Ancient", woo: 1,
+    desc: "Mindfulness is the scientifically-studied, secularized version of Buddhist meditation. The idea: pay attention to the present moment without judging. Simple to explain. Fiendishly hard to do.",
+    humor: "The idea is to think of nothing. Easy, right? Close your eyes... \u2018I need to buy milk.\u2019 Back to breathing. \u2018Did I reply to that email?\u2019 Back to breathing. \u2018I just remembered what Karen said in 2014.\u2019 Congratulations. You\u2019ve meditated." },
+  acupuncture: { name: "Acupuncture", emoji: "\ud83d\udccc", tagline: "They stick needles in you and you pay for it", cat: "eastern", catLabel: "Eastern / Ancient", woo: 2,
+    desc: "A 2,000-year-old Chinese practice of inserting very fine needles at specific body points. One of the few alternative therapies with decent scientific evidence, especially for chronic pain.",
+    humor: "Acupuncture is the only socially acceptable context where someone sticks you repeatedly and you say \u2018ah, so relaxing.\u2019 Try saying that in the ER." },
+  reiki: { name: "Reiki", emoji: "\ud83e\udd32", tagline: "Warm hands that heal the soul (and the emotional wifi)", cat: "spiritual", catLabel: "Spiritual / Energy-based", woo: 4,
+    desc: "A Japanese practice where a therapist channels \u2018universal energy\u2019 through their hands. They hover their hands over your body and... that\u2019s basically it. You lie there while someone holds their hands near you.",
+    humor: "Reiki is the only therapy where someone can treat you without touching you, remotely, without you even knowing. It\u2019s like the spam of the spiritual world: energy you didn\u2019t subscribe to." },
+  yoga: { name: "Yoga", emoji: "\ud83e\uddd8\u200d\u2642\ufe0f", tagline: "Breathe, stretch, and manifest... or at least don\u2019t scream", cat: "eastern", catLabel: "Eastern / Ancient", woo: 1,
+    desc: "Ancient Indian discipline with 5,000 years of history. The Western version is mostly the physical postures with some breathing and a \u2018namaste\u2019 at the end. Has real scientific evidence for back pain, stress, and flexibility.",
+    humor: "\u2018I\u2019m anxious.\u2019 Do yoga. \u2018My back hurts.\u2019 Do yoga. \u2018My car broke down.\u2019 Do yoga. \u2018I\u2019m in a fire.\u2019 Do yoga, but quickly." },
+  coaching: { name: "Coaching", emoji: "\ud83d\udde3\ufe0f", tagline: "\u2018I\u2019m not a therapist, but I charge like one\u2019", cat: "trending", catLabel: "Trending / Social Media", woo: 2,
+    desc: "Professional coaching is a legitimate tool. The problem is the explosion of \u2018quantum coaches,\u2019 \u2018ontological coaches,\u2019 and \u2018abundance coaches\u2019 with a weekend certification and cosmic pricing.",
+    humor: "A quantum coach told me my problem was that my particles were misaligned. I asked for my quantum physicist\u2019s number but he didn\u2019t have one." },
+  fengshui: { name: "Feng Shui", emoji: "\ud83c\udfe0", tagline: "Move the sofa, change your destiny", cat: "eastern", catLabel: "Eastern / Ancient", woo: 3,
+    desc: "A 3,000-year-old Chinese art of harmonizing your space to favor the flow of energy. Tells you where to put your sofa, what color to paint the walls, and why that pile of Amazon boxes is blocking your prosperity.",
+    humor: "I\u2019d been single for three years. Turns out it was because my sofa faced north. I turned it 45 degrees and now I have three suitors and a job offer." },
+  constellations: { name: "Family Constellations", emoji: "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67", tagline: "Your great-grandfather is to blame for everything", cat: "trending", catLabel: "Trending / Social Media", woo: 4,
+    desc: "A method claiming that unresolved conflicts from your ancestors are transmitted across generations, unconsciously affecting you. Strangers act as your relatives in a group setting. Yes, it\u2019s as theatrical as it sounds.",
+    humor: "Turns out my fear of commitment comes from my great-great-grandfather jilting a shepherdess in 1847. Now that I know, everything makes sense. Or not. But at least I have someone to blame." },
+  bach: { name: "Bach Flower Remedies", emoji: "\ud83d\udc90", tagline: "38 little drops for 38 ways of falling apart", cat: "spiritual", catLabel: "Spiritual / Energy-based", woo: 3,
+    desc: "A system of 38 flower essences, each linked to a specific emotional state. The drops are so diluted there\u2019s no trace of the original flower. But they contain brandy as a preservative, so there\u2019s that.",
+    humor: "It\u2019s basically like choosing an emotional Pok\u00e9mon, but in herbal shop version. \u2018I choose you, Rescue Remedy!\u2019" },
+  astrology: { name: "Astrology / Birth Chart", emoji: "\u2b50", tagline: "Mercury retrograde is to blame for everything (again)", cat: "bonus", catLabel: "Wildcard / Bonus", woo: 5,
+    desc: "A millennial system claiming that the position of the stars at your birth determines your personality. Your birth chart is your cosmic ID. The only therapy that lets you legitimately cancel plans because \u2018Venus is in square with Saturn.\u2019",
+    humor: "I can\u2019t make decisions this week because Mercury is retrograde. Nor last week because the Moon was in Scorpio. Basically, the universe doesn\u2019t want me to do anything." },
+  akashic: { name: "Akashic Records", emoji: "\ud83d\udcda", tagline: "The cosmic library of your soul (no library card needed)", cat: "trending", catLabel: "Trending / Social Media", woo: 5,
+    desc: "An alleged \u2018universal database\u2019 containing all information about every soul: past lives, present, future. It\u2019s the iCloud of karma. The Netflix of past lives. The cosmic backup of your existence.",
+    humor: "It\u2019s like cosmic Google but without ads. You search \u2018why is my love life a mess\u2019 and it tells you that in a past life you were a Tibetan monk. Well, that explains everything." },
+  nlp: { name: "NLP (Neuro-Linguistic Programming)", emoji: "\ud83e\uddec", tagline: "Reprogram your brain like it\u2019s Windows 95", cat: "pseudo", catLabel: "Pseudoscientific", woo: 3,
+    desc: "A set of techniques claiming to reprogram behavioral patterns through language. Very popular in coaching and sales. Sounds scientific until you read the studies.",
+    humor: "According to NLP, if you move your eyes up-left you\u2019re remembering, and up-right you\u2019re lying. Try it on your partner when they explain why they were late. Results not guaranteed. Relationship dignity, neither." },
+  homeopathy: { name: "Homeopathy", emoji: "\ud83d\udca7", tagline: "The less active ingredient, the more potent (yes, really)", cat: "pseudo", catLabel: "Pseudoscientific", woo: 4,
+    desc: "An 18th-century system based on the idea that diluting a substance makes it stronger. Typical dilutions contain zero molecules of the original ingredient. The remedy is, chemically speaking, water.",
+    humor: "It\u2019s as if someone threw an aspirin into the Atlantic Ocean, scooped a glass of water on a beach in Florida, and told you: \u2018Here, this cures your headache.\u2019 And you paid for it." },
+  aromatherapy: { name: "Aromatherapy", emoji: "\ud83c\udf38", tagline: "Essential oils for EVERYTHING", cat: "spiritual", catLabel: "Spiritual / Energy-based", woo: 2,
+    desc: "Therapeutic use of essential oils \u2014 concentrated plant extracts with real, measurable chemical compounds. The debate isn\u2019t whether they contain active substances (they do), but whether inhaling them can have significant therapeutic effects.",
+    humor: "My aromatherapist said eucalyptus oil cures sadness. It didn\u2019t cure the sadness, but now I cry with clear sinuses, which is something." },
+  biodecoding: { name: "Biodecoding", emoji: "\ud83d\udcad", tagline: "Your illness is a message from your subconscious (in bad handwriting)", cat: "pseudo", catLabel: "Pseudoscientific", woo: 4,
+    desc: "A theory claiming that every illness originates from an unresolved emotional conflict. Every organ, every body part has an emotional meaning. Potentially dangerous if it leads people to abandon real medical treatment.",
+    humor: "Knee pain? It\u2019s because you won\u2019t kneel before life. Allergies? Your body is symbolically rejecting something. Stubbed your pinky toe? ...Well, that\u2019s because the nightstand was there." },
+  crystals: { name: "Crystal Therapy", emoji: "\ud83d\udc8e", tagline: "Pretty rocks with cosmic powers (allegedly)", cat: "spiritual", catLabel: "Spiritual / Energy-based", woo: 5,
+    desc: "Placing crystals on the body to \u2018balance energies.\u2019 Rose quartz for love, amethyst for calm, black tourmaline for protection. A 2001 study showed people reported the same sensations with real crystals and plastic fakes.",
+    humor: "It\u2019s like collecting rocks from the natural history museum, but now you put them on your nightstand and ask them to fix your love life." },
+  lawofattraction: { name: "Law of Attraction / Manifestation", emoji: "\ud83e\uddf2", tagline: "Think it hard enough and the universe delivers (free shipping)", cat: "trending", catLabel: "Trending / Social Media", woo: 4,
+    desc: "The belief that your thoughts emit a \u2018vibrational frequency\u2019 that attracts matching experiences. Popularized by \u2018The Secret\u2019 and TikTok\u2019s 110 million #manifestation posts. It\u2019s Amazon Prime but with the divine particle as delivery service.",
+    humor: "I\u2019ve been visualizing a Porsche for three weeks. So far only the electric bill has arrived, but I imagine the universe is processing my order. Cosmic shipping must be slow." },
+  hooponopono: { name: "Ho\u2019oponopono", emoji: "\ud83d\ude4f", tagline: "Four magic phrases to fix everything", cat: "bonus", catLabel: "Wildcard / Bonus", woo: 5,
+    desc: "A Hawaiian reconciliation practice adapted into self-help. You repeat: \u2018I\u2019m sorry, forgive me, thank you, I love you.\u2019 The premise: you\u2019re 100% responsible for everything in your reality. Everything. Including traffic.",
+    humor: "\u2018I\u2019m sorry, forgive me, thank you, I love you.\u2019 I say it when I wake up, before bed, and when my boss asks for a report that was due yesterday. It hasn\u2019t worked with the IRS yet, but I\u2019m still trying." }
+};
+
+// Amazon links (placeholder until books are published)
+const AMAZON_EN = "#";
+const AMAZON_ES = "#";
+
+let currentNode = TREE;
+let path = [];
+
+function render() {
+  const app = document.getElementById('app');
+  if (currentNode.result) { renderResult(app, currentNode.result); return; }
+  const progress = ((currentNode.step - 1) / currentNode.totalSteps) * 100;
+  let optionsHTML = currentNode.options.map((opt, i) => `
+    <button class="option-btn" onclick="selectOption(${i})">
+      <div class="option-emoji">${opt.emoji}</div>
+      <div class="option-content">
+        <div class="option-label">${opt.label}</div>
+        ${opt.sublabel ? `<div class="option-sublabel">${opt.sublabel}</div>` : ''}
+      </div>
+    </button>`).join('');
+  app.innerHTML = `<div class="card">
+    <div class="step-indicator">Question ${currentNode.step} of ${currentNode.totalSteps}</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+    <div class="question-text">${currentNode.question}</div>
+    <div class="question-flavor">${currentNode.flavor}</div>
+    <div class="options">${optionsHTML}</div>
+  </div>
+  ${path.length > 0 ? '<div class="counter"><button class="btn-restart" onclick="goBack()" style="font-size:0.75rem;padding:6px 14px;">\u2190 Go back</button></div>' : ''}`;
+}
+
+function selectOption(i) {
+  const opt = currentNode.options[i];
+  path.push({ node: currentNode, label: opt.pathLabel });
+  currentNode = opt.next;
+  if (currentNode.result) renderResult(document.getElementById('app'), currentNode.result);
+  else render();
+}
+
+function renderResult(app, key) {
+  const r = RESULTS[key];
+  let pathHTML = path.map((p, i) => `<span style="display:inline-block;font-size:0.65rem;background:#e8f4f5;color:#4A7C8B;padding:3px 10px;border-radius:12px;font-weight:600;">${p.label}</span>${i < path.length - 1 ? '<span style="color:#ccc;font-size:0.7rem;margin:0 4px;">\u203a</span>' : ''}`).join('');
+  let wooDots = '';
+  for (let i = 1; i <= 5; i++) wooDots += `<div class="woo-dot${i <= r.woo ? ' filled' : ''}"></div>`;
+
+  const shareText = encodeURIComponent(`I took the "Choose Your Own Self-Help" quiz and got: ${r.name}! ${r.tagline} \ud83d\udd2e Take the quiz:`);
+  const shareUrl = encodeURIComponent('https://yantahari.github.io/choose-your-own-self-help/');
+
+  app.innerHTML = `<div class="card result-card">
+    <div class="step-indicator">\ud83c\udfaf Your result</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;justify-content:center;">${pathHTML}</div>
+    <div class="result-emoji">${r.emoji}</div>
+    <div class="result-cat ${r.cat}">${r.catLabel}</div>
+    <div class="result-name">${r.name}</div>
+    <div class="result-tagline">"${r.tagline}"</div>
+    <div class="result-desc">${r.desc}</div>
+    <div class="result-humor">\ud83d\ude04 ${r.humor}</div>
+    <div class="woo-meter"><span>Woo-Woo Meter:</span> <div class="woo-dots">${wooDots}</div> <span>${r.woo}/5</span></div>
+    <div class="cta-section">
+      <p>Want the <strong>full story</strong> on ${r.name}? How a session works, what science really says, and much more humor?</p>
+      <p><strong>Get the book \u2014 16 therapies, all with the Woo-Woo Meter.</strong></p>
+      <a class="cta-btn" href="${AMAZON_EN}" target="_blank">\ud83d\udcda Get the Book on Amazon</a>
+    </div>
+    <div class="share-section">
+      <p>Share your result:</p>
+      <div class="share-btns">
+        <a class="share-btn twitter" href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank">Twitter/X</a>
+        <a class="share-btn whatsapp" href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank">WhatsApp</a>
+        <button class="share-btn copy" onclick="navigator.clipboard.writeText('I got ${r.name}! Take the quiz: https://yantahari.github.io/choose-your-own-self-help/');this.textContent='\u2705 Copied!'">Copy link</button>
+      </div>
+    </div>
+    <button class="btn-restart" onclick="restart()">\ud83d\udd04 Start over</button>
+  </div>`;
+}
+
+function restart() { currentNode = TREE; path = []; render(); }
+function goBack() { if (path.length > 0) { currentNode = path.pop().node; render(); } }
+render();
+</script>
+</body>
+</html>
