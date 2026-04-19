@@ -1,1 +1,9 @@
-{"next_index": 1, "posted": []}
+{
+  "next_index": 2,
+  "posted": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:extlo5jy7def4dorb7llnhb7/app.bsky.feed.post/3mjtfg5cpec2s"
+    }
+  ]
+}
