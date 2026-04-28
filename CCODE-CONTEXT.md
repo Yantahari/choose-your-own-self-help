@@ -2,7 +2,7 @@
 
 Documento de traspaso para Claude Code. Actualizar al final de cada sesión relevante.
 
-**Última actualización:** 2026-04-19
+**Última actualización:** 2026-04-25
 
 ---
 
@@ -129,17 +129,30 @@ Ruta base: `/home/yantahari/Documents/Projectes/Elije tu propia.../`
 
 ---
 
+## Estrategia actual (giro 25 abr 2026)
+
+Después de 6 semanas el crecimiento orgánico es **cero**: 0 interacciones en FB, 0 visitas GA en 7 días, 3 seguidores Bluesky. Cambio de táctica:
+
+1. **Reducir FB propio a 1/semana** (antes 2/semana). Publicar al vacío no merece el esfuerzo.
+2. **Foco en intervenciones de Luna en posts ajenos** — comentar en publicaciones de las cuentas seguidas (Goop, Chopra, Dispenza, Bryan Johnson, Mushies, IFLScience, Brian Cox, etc.). Ahí está la audiencia.
+3. **Flujo:** el usuario detecta post jugoso, lo comparte (link/screenshot/texto), Claude redacta comentario en voz Luna, usuario aprueba/publica.
+4. Medium y Bluesky se mantienen como están.
+
 ## En curso / pendiente
 
-- Verificar si el trigger remoto ejecuta automáticamente mañana 20 abr a las 10:00 CEST. Si falla, decidir si investigar con Anthropic o mantener ejecución manual.
+- Esperar primera oportunidad de comentario reactivo desde el feed renovado de FB.
+- Verificar si el trigger remoto Bluesky funciona automáticamente. Si falla, ejecución manual durante sesiones.
 - Seguir publicando Medium según calendario (retraso acumulado de ~2 semanas).
-- Crecimiento orgánico Facebook + Bluesky.
 - Primera reseña verificada en Amazon (acelera algoritmo KDP).
 
 ---
 
-## Métricas a 19 abr 2026
+## Métricas a 25 abr 2026
 
-- Bluesky: 3 seguidores, 5 posts publicados, 2 likes
-- Google Analytics últimos 7 días: 15 usuarios / 15 sesiones (73% tráfico Facebook)
-- Amazon: sin datos confirmados de ventas
+- **Bluesky:** 3 seguidores, 5 posts publicados, 2 likes (sin cambios desde 19 abr; trigger remoto sigue roto, último post manual del 19 abr)
+- **GA últimos 7 días:** 0 usuarios / 0 sesiones — **estancamiento total**
+- **GA últimos 30 días:** 15 usuarios / 15 sesiones / 16 vistas (todo del periodo previo al 19 abr)
+- **FB Feb-Abr (12 posts en 6 semanas):** 31 impresiones totales, 55 vistas, **0 interacciones, 0 reacciones, 0 shares, 0 comentarios, 0 net follows**. Cada post tiene ~1 viewer (probablemente el usuario verificando).
+- **Medium:** 4 artículos publicados, último el 25 abr (Crystal Therapy)
+- **Cuentas FB seguidas:** ~16 (David Sedaris, Mark Manson, IFLScience, Goop, Committee for Skeptical Inquiry, Sarah Knight, + 6 nuevas el 25 abr: Deepak Chopra, Joe Dispenza, Bryan Johnson, Science-Based Medicine, Brian Cox, Caitlin Doughty)
+- **Amazon:** sin datos confirmados de ventas
