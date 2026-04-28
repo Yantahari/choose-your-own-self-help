@@ -2,7 +2,7 @@
 
 Documento de traspaso para Claude Code. Actualizar al final de cada sesión relevante.
 
-**Última actualización:** 2026-04-25
+**Última actualización:** 2026-04-28
 
 ---
 
@@ -56,14 +56,21 @@ Web y automatización para promocionar el libro "Choose Your Own Self-Help" de L
 - **Script:** `autoposter.py` (publica POSTS[next_index] y actualiza estado)
 - **Estado:** `bluesky_state.json` — `next_index` apunta al próximo post a publicar
 - **Cola de posts:** 30 posts hardcoded en `autoposter.py` (alterna EN/ES)
-- **Trigger remoto (Anthropic):** `trig_01VPAN2FsTtPfW5TLhmHprWf` — "Luna Bolt Bluesky Daily Post", cron `0 8 * * *` (10:00 CEST)
 
-### Problemas conocidos (19 abr 2026)
-- El trigger remoto `Run now` falla con `github_repo_access_denied` a pesar de tener la GitHub App "Claude" instalada con acceso al repo. Pendiente verificar si los runs automáticos (cron) funcionan o comparten el problema.
-- Si el automático falla, ejecutar manualmente: `cd choose-your-own-self-help && python3 autoposter.py && git add bluesky_state.json && git commit -m "..." && git push`.
+### Ejecución automática (28 abr 2026)
+- **Cron local del usuario:** `0 10 * * *` ejecuta `~/.local/bin/luna-bolt-autoposter.sh`
+- El wrapper hace: lock con `flock`, `git pull --rebase`, `python3 autoposter.py`, commit + push del state file
+- **Auth git push:** token de `gh` extraído a `~/.config/luna-bolt/github-token` (chmod 600), inyectado como URL `https://x-access-token:TOKEN@github.com/...` en el push
+- **Log:** `~/.local/share/luna-bolt/autoposter.log`
+- **Lock:** `~/.local/share/luna-bolt/autoposter.lock` (evita doble run manual+cron)
+- Si el PC está apagado a las 10:00, ese día se salta. No hay catch-up automático (decisión consciente: simple > robusto).
+
+### Trigger remoto Anthropic — abandonado
+- `trig_01VPAN2FsTtPfW5TLhmHprWf` falla con `github_repo_access_denied` desde antes del 19 abr. 9 días seguidos sin disparar. Migrado a cron local. No tocar el trigger; está auto-deshabilitado.
 
 ### Credenciales
 - `.env` (en el padre del repo, no commiteado): `BLUESKY_HANDLE=lunabolt.bsky.social`, `BLUESKY_APP_PASSWORD=...`
+- `~/.config/luna-bolt/github-token` (chmod 600, no commiteado): token GitHub para push automático del cron
 
 ---
 
