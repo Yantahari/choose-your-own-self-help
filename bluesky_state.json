@@ -1,5 +1,5 @@
 {
-  "next_index": 7,
+  "next_index": 8,
   "posted": [
     {
       "index": 1,
@@ -24,6 +24,10 @@
     {
       "index": 6,
       "uri": "at://did:plc:extlo5jy7def4dorb7llnhb7/app.bsky.feed.post/3mkwotzpaye2c"
+    },
+    {
+      "index": 7,
+      "uri": "at://did:plc:extlo5jy7def4dorb7llnhb7/app.bsky.feed.post/3ml3prs7gcd2a"
     }
   ]
 }
